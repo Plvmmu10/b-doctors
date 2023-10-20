@@ -14,8 +14,10 @@ class Doctor extends Model
         'services',
         'address',
         'photo',
+        'visible',
+        'slug'
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);
