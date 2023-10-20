@@ -17,6 +17,8 @@ class DoctorSeeder extends Seeder
      */
     public function run()
     {
+
+
         $doctors = config('users.users');
 
         $user = User::all();
@@ -31,6 +33,9 @@ class DoctorSeeder extends Seeder
             $new_doctor->visible = $doctor['visible'];
             $new_doctor->slug = Str::slug($user[$key]->name, '-');
             $new_doctor->save();
+            $new_doctor->typologies()->attach($doctor['typologies']);
+            $new_doctor->stars()->attach($doctor['vote']);
+
         }
     }
 }
