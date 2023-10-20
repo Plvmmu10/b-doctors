@@ -23,4 +23,14 @@ class Doctor extends Model
         return $this->belongsTo(User::class);
     }
 
+
+    public function typologies()
+    {
+        return $this->belongsToMany(Typology::class);
+    }
+
+    public function stars()
+    {
+        return $this->belongsToMany(Star::class);
+    }
 }
