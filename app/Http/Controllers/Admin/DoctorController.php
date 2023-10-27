@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Http\Requests\UpdateDoctorRequest;
+use App\Http\Requests\StoreDoctorRequest;
+
 
 
 class DoctorController extends Controller
@@ -28,7 +30,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.doctors.create');
     }
 
     /**
@@ -37,9 +39,16 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDoctorRequest $request)
     {
-        //
+        $form_data = $request->validated();
+        // $slug = Doctor::generateSlug($request->slug);
+        // $form_data['slug'] = $slug;
+        $newProject = new Doctor();
+        $newProject->fill($form_data);
+        $newProject->save();
+
+        return redirect()->route('admin.doctors.index')->with('message', 'Dottore aggiunto correttamente');
     }
 
     /**

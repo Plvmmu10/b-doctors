@@ -12,9 +12,9 @@
                         <div>
                             <h2>Aggiungi nuovo dottore</h2>
                         </div>
-                        {{-- <div>
-                            <a href="{{route('admin.projects.create')}}" class="btn btn-small btn-primary"><i class="fa-solid fa-plus mx-1"></i><span class="mx-2" >Nuovo Dottore</span></a> 
-                        </div> --}}
+                        <div>
+                            <a href="{{route('admin.doctors.create')}}" class="btn btn-small btn-primary"><i class="fa-solid fa-plus mx-1"></i><span class="mx-2" >Nuovo Dottore</span></a> 
+                        </div>
                     </div>
             </div>
             @if(session('message'))
